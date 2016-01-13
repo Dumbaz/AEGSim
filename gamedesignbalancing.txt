@@ -1,0 +1,131 @@
+Gamedesign
+
+Thema
+-	Hacker vs. Hacker
+
+Plattformen
+-	Windows 7 oder höher
+
+Dauer einer Runde 
+-	Durchschnittlich 20 min
+
+Spielmechanik:
+Gespielt wird gegeneinander. Die Gegenspieler müssen den jeweils gegnerischen Computer (Basis) 
+hacken, um zu gewinnen. Die Kontrahenten haben zu Beginn einer Runde jeweils eine Basis und 
+Startressourcen, die mit einigen Knotenpunkten verbunden sind. Knotenpunkte sind Punkte, 
+auf denen man Module und Upgrades installieren kann. Diese Punkte sind unterschiedlich groß und 
+haben unterschiedliche Eigenschaften. Z.B. kann man auf den 1. Knotenpunkt 4 Module installieren 
+und hat eine geringere Leistung als der 2. Knotenpunkt, auf dem man 7 Module installieren kann. 
+Die Leistung sagt aus, wann und wie stark ein Knotenpunkt ausgelastet ist. Falls ein Knotenpunkt 	//installierte module verbrauchen leistung!
+Module installiert hat, kann es zur Überlastung führen, was dafür sorgen kann, dass ein 
+Knotenpunkt für kurze Zeit ausfällt oder weniger Leistung erbringt. Zu den unterschiedlichen 
+Größen. Es gibt große und kleine Knotenpunkte. Auf den kleinen Knotenpunkten kann man max. 4 
+Module installieren und man kann 2 Verbindungen anschließen und auf den großen kann man bis zu
+7 Module installieren und hier wiederrum  3 Verbindungen anschließen (d.h. mit anderen 
+Knotenpunkten oder Basis verbinden). Wie bereits erkannt gibt es Module, die man auf die 
+Punkte verteilen kann. Module sind die Firewall, BitcoinMining, Hochleistungsrechner, 
+Netzwerkkarte, Controlserver und Phishing. Die Firewall bestimmt die Abwehr eines 
+Knotenpunktes. Die BitcoinMine beschafft lediglich nur langsam Bitcoins und verbraucht 
+Rechenleistung des Knotenpunktes (abhängig von der Leistung des Nodes).								//geändert, bitcoinmine unabhängig von clients
+Hochleistungsrechner ist ein Modul, welches wie man unschwer im Namen erkennen kann, die 
+Leistung des Knotenpunktes erweitert um Überlastungen zu verhindern oder zu minimieren. 
+Netzwerkkarten erweitern die maximalen Verbindungen zu anderen Punkten. Controlserver erweitern 
+die maximale Anzahl an Verbindungen zu Clients. Phishing ist ein Befehl des Controlservers, 
+welches im Gegensatz zur Bitcoinmine nicht die Clients arbeiten lässt, sondern verbraucht um schnell viele Bitcoins
+zu beschaffen, die Clients verschwinden nach deren Ausbeutung. 
+Clients sind normale Computer, die aber für den Spieler nur virtuell dargestellt werden. Diese 
+Computer und deren Anzahl sind vor Spielbeginn festgelegt, 
+sprich, bei Ausbeutung dieser Clients verschwinden sie für immer und können nicht wieder 
+hergestellt werden. Zu den Ressourcen. Es gibt Bandbreiten und Bitcoins. Bitcoins ist das 
+Spielgeld, welches wie oben schon beschrieben durch Bitcoinmining und Phishing beschaffen 
+werden kann. Mit dem gewonnenen Bitcoins kann man die Module kaufen und installieren. Bandbreiten // nochmal überarbeiten
+ beschreiben die Verbindungen zwischen den einzelnen Punkten. Diese können geupgraded werden, 
+ welches Geld kostet. Eine bessere Verbindung sorgt logischerweise für eine bessere
+  Datenübertragung. Z.B. kann man durch eine bessere Verbindung mehrere Einheiten übertragen.
+Einheiten sollen hauptsächlich gegnerische oder neutrale Knotenpunkte attackieren und diese //
+Einnehmen. Die Angriffe haben unterschiedliche Eigenschaften. In den jeweilige Stichpunkten mehr Informationen.
+
+Einzelheiten
+
+Spieleranzahl
+-	Momentan 2 Spieler
+-	Erweiterung bis zu X Spieler
+
+Spieler 
+-	Startgeld (3000 Coins = 30 Bitcoins)
+-	Bandbreite zwischen allen zum start verbundenen Nodes (6.000 kBit/s)
+
+Basis
+-   ist ein spezieller Knotenpunkt mit Modulplätzen oder fest eingebauten Modulen und eingebundener Firewall
+-	Leistung/Lebenspunkte (100% = 50000)
+-   Leistung verringert sich durch Angriffe
+-	Bei 0% Leistung, Spielende + verloren //weitere hinzufügen !?
+
+Knotenpunkte
+-	Leistung (100% = 5000; 10000)
+-	Einnehmbar
+-	Modulplätze 4; 7
+-	Integrierte Netzwerkkarte 2; 3 (entspricht die Anzahl der Verbindungen)
+
+Clients
+-	Sind vor Spielbeginn verfügbar
+-	Müssen eingenommen werden
+-	Verbrauchte sind nicht erneut generierbar
+-	Verwendet durch Bitcoinmining
+-	Verbraucht durch Phishing
+
+Bitcoinmine
+-	Kosten: 1000 Coins
+-	Leistungskosten abhängig von der Auslastung/Einstellung
+-	Produziert: 1 Coins
+
+Firewall
+-   kann pro Upgrade 5 Punkte auf Spezialisierung gegen Angriffe setzen
+-   max. 5 Lvl
+-   ein Upgrade kostet: Lvl*5000 (jetztiges Level multipliziert mit 5000 Coins) //???
+
+Controlserver
+-   kann pro Upgrade 5 Punkte auf Spezialisierung für Virus setzen
+- 	pro Upgrade 100 weitere Verbindungen zu Clients
+-   max. 5 Lvl
+-   ein Upgrade kostet: Lvl*4000 (jetztiges Level multipliziert mit 4000 Coins)
+-	Virus:
+		- jeder Spieler hat seinen Virus, der 
+		  in der Basis spezialisiert werden kann
+		- 2 Spezialisierungen, Schnelligkeit, Angriffsstärke (Vielleicht später mehrere)
+		- Schnelligkeit sagt aus, wie lange er braucht um durch die Bandbreiten durchzukommen
+		- Angriff entspricht den direkten Schaden, der auf den Knotenpunkt ausgeübt wird
+
+Hochleistungsrechner
+-  	erweitert die Lebenspunkte pro Upgrade um 1000
+- 	max. 10 Level
+-   ein Upgrade kostet: Lvl*20000 (jetztiges Level multipliziert mit 5000 Coins)
+
+Netzwerkkarte
+-   kann pro Upgrade eine weitere Verbindung anschließen
+-   max. 2 Level
+-   ein Upgrade kostet: Lvl*3500 (jetztiges Level multipliziert mit 3500 Coins)
+
+Phishing 
+-  	ist ein Befehl, womit man eine bestimmte Anzahl der vorhandenen Clients "ausgeben" kann,
+	um pro Client 10 Coins sofort bekommt
+-   Kosten: 2500 Coins
+
+Bandbreite
+- 	ist die Verbindung zwischen den Knotenpunkten
+- 	zum herstellen einer Verbindung wird der Abstand in Pixel benötigt
+-	Mithilfe des Satz des Pythagoras wird durch die Koordinaten der jeweiligen Knotenpunkte, die miteinander
+	verbunden werden sollen, die Hypothenuse ausgerechnet werden, welche auch gleichzeitig der Abstand zwischen 
+	den beiden Punkten ist
+-	1 Pixel abstand kostet 2 Coins 
+
+(Muss ich noch überarbeiten - Armin)
+
+TODO-LIST Armin:
+- 	Spielfeld entwerfen
+-	jeden Punkt genauer definieren
+
+
+  
+
+
