@@ -1,4 +1,4 @@
-import buildings
+import buildings, modules
 
 
 subscibers = []
@@ -10,7 +10,7 @@ def notify(time):
 class Game(object):
 	"""docstring for Game
 		Gametime is in seconds
-		runGame() runs the game until 20 Minutes have passed
+		runGame() runs the game in Intervals of one second until 20 Minutes have passed
 	"""
 	def __init__(self, gametime):
 		super(Game, self).__init__()
@@ -29,6 +29,7 @@ class Game(object):
 	def runGame(self):
 		while self.gametime < 1200:
 			notify(1)
+			print(self)
 			self.gametime += 1
 
 
@@ -48,6 +49,7 @@ class Spieler(object):
 
 
 def setupGame(game):
+
 	spieler1basis = buildings.Basis()
 	hans = Spieler('Hans', 30000, 6000, game, spieler1basis)
 	spieler1basis.setOwner(hans)
@@ -56,26 +58,26 @@ def setupGame(game):
 	peter = Spieler('Peter', 30000, 6000, game, spieler2basis)
 	spieler2basis.setOwner(peter)
 
-
-	print(game)
-
 """Game is supposed to last for 20 Minutes"""
 
 def main():
 	game = Game(0)
-	setupGame(game)
-
-	testbase = buildings.Knotenpunkt()
-	testbase.changeLeistung(-120)
-	testbase.changeLeistung(10)
 
 
-	game.updatetimeSeconds(50)
+	#SETUP Spieler 1
+	spieler1basis = buildings.Basis()
+	subscibers.append(spieler1basis)
+	hans = Spieler('Hans', 30000, 6000, game, spieler1basis)
+	spieler1basis.setOwner(hans)
 
-	game.updatetimeMinutes(15)
+	#SETUP Spieler 2
+	spieler2basis = buildings.Basis()
+	subscibers.append(spieler2basis)
+	peter = Spieler('Peter', 30000, 6000, game, spieler2basis)
+	spieler2basis.setOwner(peter)
+	
 
 	game.runGame()
-	print(game)
 
 if __name__ == '__main__':
 	main()

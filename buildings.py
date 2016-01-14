@@ -62,37 +62,8 @@ class Basis(Knotenpunkt):
 		self.netzwerkkarten = 3
 		self.grundproduktion = 100
 		self.owner = None
+		GameSim.subscibers.append(self)
 	def setOwner(self, player):
 		self.owner = player
 	def update(self, time):
-		self.owner.bitcoin += time * self.grundproduktion
-
-
-class Controlserver(object):
-	"""docstring for Controlserver"""
-	def __init__(self):
-		super(Controlserver, self).__init__()
-		self.kosten = 20000
-		self.leistungskosten = 1000
-		self.ownedclients = 0
-		self.clientrate = 2
-		self.owner = None
-		subscibers.append(self)
-	def setOwner(self, player):
-		self.owner = player
-	def update(self, time):
-		self.ownedclients += 2 * time
-
-class Bitcoinmine(object):
-	"""docstring for Bitcoinmine"""
-	def __init__(self):
-		super(Bitcoinmine, self).__init__()
-		self.kosten = 10000
-		self.produktion = 350
-		self.leistungskosten = 500
-		self.owner = None
-		subscibers.append(self)
-	def setOwner(self, player):
-		self.owner = player
-	def update(self, time):
-		self.owner.bitcoin += time * self.produktion
+		self.owner.bitcoin += (time * self.grundproduktion)
