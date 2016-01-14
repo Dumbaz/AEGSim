@@ -1,15 +1,184 @@
 Gamedesign
 
 Thema
+
 -	Hacker vs. Hacker
 
 Plattformen
+
 -	Windows 7 oder höher
 
 Dauer einer Runde 
+
 -	Durchschnittlich 20 min
 
-Spielmechanik:
+Einzelheiten
+
+Spieleranzahl
+
+-	Momentan 2 Spieler
+-	Erweiterung bis zu X Spieler
+
+Spieler 
+
+-	Startgeld (30000 Coins = 300 Bitcoins)
+-	Bandbreite zwischen allen zum start verbundenen Nodes (6.000 kBit/s)
+
+Basis
+
+-   Spezieller Knotenpunkt mit Modulplätzen oder fest eingebauten Modulen, 
+	z.B. eingebundener Firewall
+-	Angreifbar/Zerstörbar durch DDOS - Attacken
+-   Leistung verringert sich durch Angriffe (DDOS)
+-	Endszenario
+	-	Basis zerstören (Leistung auf 0% bringen)
+	- 	(weitere?) 
+	
+-	Leistung 		= 	50000 (100%)
+-	Lebenspunkte	= 	100000
+-	Modulplätze		=	3 
+-	Grundproduktion	=	100 Coins / Sekunde
+-	Netzwerkkarten	= 	5 (1 Netzwerkkarte = 1 Verbindung)
+
+
+Knotenpunkte (kleiner Knotenpunkt, großer Knotenpunkt)
+
+-	Hat Lebenspunkte und Leistungspunkte
+-	Wenn Leistung = 0, dann sinkt Lebenspunkteanzahl langsam aber stetig, bis leistung > 0
+-	Wenn Leistung > 0 dann regeneriert sich Lebenspunkteanzahl seeehr langsam aber stetig
+-	Angreifbar durch DDOS - Attacken
+-	Einnehmbar durch setzen eines Modul
+- 	1 Modul verwendet 1 Modulplatz (Alle Module sind 1 groß)
+
+-	Kleiner Knotenpunkt
+	-	Leistung		=	5000 (100%)
+	-	Lebenspunkte	=	3000
+	-	Modulplätze		=	3
+	- 	Netzwerkkarten	= 	2
+	-	braucht 30 sec. um bei 0LP die HP komplett zu verlieren
+	- 	braucht 1 min. um HP nach Angriff zu regenerieren
+	
+-	Mittlerer Knotenpunkt
+	-	Leistung		=	7500 (100%)
+	-	Lebenspunkte	=	6000
+	-	Modulplätze		=	5
+	-	Netzwerkkarten	=	3
+	-	braucht 45 sec. um bei 0LP die HP komplett zu verlieren
+	-	braucht 1.5 min, um HP nach Angriff zu regenerieren 
+
+-	Großer Knotenpunkt
+	-	Leistung		=	10000 (100%)
+	-	Lebenspunkte	=	12000
+	-	Modulplätze		=	7
+	- 	Netzwerkkarten	= 	4
+	-	braucht 1 sec. um bei 0LP die HP komplett zu verlieren
+	-	braucht 2 min, um HP nach Angriff zu regenerieren 
+	
+Controlserver
+
+-	Kosten:	20000 Coins
+-	Leistungskosten: 1000LP (Leistungspunkte)
+-	Schickt einen Virus, welcher nacheinander die verfügbaren Clients einnimt 
+	und diese anschließend Kontrolliert
+-	Nimmt 2 Clients / Sekunde ein (Jeder Knotenpunkt hat eine verfügbare 
+	Anzahl an Clients, die eingenommen werden können)
+-	Von hier aus werden DDOS Attacken ausgeführt
+-	Von hier aus können Clients gephisht werden
+
+	-	DDOS Angriffe werden durch die Clients durchgeführt
+	-	Ein Client macht bei einem Angriff 10 Schaden auf die Leistung (NICHT LEBENSPUNKTE!)
+	-	Auswählen der Anzahl an Clients
+	-	Leistungspunkte (eigen) subtrahieren mit Anzahl ausgewählter Clients - ergibt übrige Leistung, 
+		die für andere Zwecke verwendet werden können
+	-	Die Clients mit 10 multiplizieren (10 = jeweiliger Angriffsschaden) zusätzlich mit 
+		2 multiplizieren, um auszurechnen ob der volle Schaden durch die Bandbreite passt 
+		(Falls nicht geht nur der Schaden durch, der hindurch passt)
+	-	Diese dann wieder durch 2 rechnen um den Schaden auf die gegnerischen Leistungspunkte auszuüben
+		-	geg.:	Knotenpunkt eigen =	Leistung 7500LP (100%)
+										Clients	700CL
+										Verbindung 12000kBit/s
+					Knotenpunkt gegen =	Leistung 5000 (100%)
+										Lebenspunkte 3000
+		-	650CL										Die Anzahl der Clients die ich auswähle
+		-	650CL * 10 = 6500							Jeder Client macht 10 Schaden, ingesamt 6500 Schaden
+		-	7500LP - 6500 = 1000 (~15%)					Die übrige Leistung ergibt sich aus der Subtraktion zwischen derzeitiger 
+														Leistung und des Schadens
+		-	6500 * 2 = 13000kBit/s						Das ist die Anzahl an Bandbreite die benötigt wird um den vollen Schaden 
+														durchzukriegen
+		-	12000kBit/s - 13000kBit/s = -1000kBit/s		In dem Beispiel sieht man, reicht nicht die Verbindung aus um den vollen
+														Schaden durchzuballern, daher wird nur der Schaden genommen der durchpasst
+		-	-1000kBit/s / 2 = -500
+		-	6500 - 500 = 6000							Unschwer zu erkennen macht man auf den gegnerischen Kontrollpunkt nur 6000 
+														Schaden auf seine Leistungspunkte. Wenn die Leistungspunkte bei 0% sind, dann
+														verlieren die gegnerische Lebenspunkte 200/s <-- WICHTIG
+
+Clients
+
+-	Sind vor Spielbeginn verfügbar, werden auf die Knotenpunkte gleichmäßig verteilt
+-	Müssen eingenommen werden durch einen Virus, welcher vom Controlserver ausgeht
+-	Verbrauchte Clients (durch Phishing) sind nicht neu generierbar
+-	Verwendet durch Bitcoinmining und DDOS Angriffe
+
+Bitcoinmine
+
+-	Kosten: 10000 Coins
+-	Produziert: 350 Coins/s
+-	Leistungskosten: 500LP (Leistungspunkte)
+
+Firewall 
+
+-	Kosten: 30000 Coins
+-	Leistungskosten: 600LP
+-   ein Upgrade kostet: Lvl*30000 (jetztiges Level multipliziert mit 30000 Coins) 
+-	Angriff Migrieren
+	-	ist eine Aktion, bei der der Spieler die Rechenleistung nicht geDDoster Nodes zu nutzen, um
+		Lebendspunkte geDDoster Nodes (deren Leistung auf 0 ist) schneller zu regenerieren, und diese zu entlasten 
+		(deren Leistung wieder zu steiegern)
+
+Hochleistungsrechner
+
+- 	Kosten: 200000 Coins
+-	Lebenspunkte: +500
+-	Leistungspunkte: +1000
+- 	max. 3 Level
+-   ein Upgrade kostet: Lvl*200000 (jetztiges Level multipliziert mit 200000 Coins)
+
+Netzwerkkarte
+
+-	Kosten: 35000 Coins
+-	Netzwerkarten: +1
+-   kann pro Upgrade eine weitere Verbindung anschließen
+-   max. 2 Level
+-   ein Upgrade kostet: Lvl*35000 (jetztiges Level multipliziert mit 35000 Coins)
+
+Phishing 
+
+-  	ist ein Befehl, womit man eine bestimmte Anzahl der vorhandenen Clients "ausgeben" kann,
+	um pro Client 100 Coins sofort bekommen kann
+-   Kosten: 25000 Coins
+
+Bandbreite
+
+- 	ist die Verbindung zwischen den Knotenpunkten
+- 	Bandbreite auswählbar zwischen 1000kBit/s - 200000kBit/s
+-	Kosten: pro gewünschte Bandbreite * Länge der Hypothenuse / 200 (BSP: 100000kBit/s * 174 / 200 = 87000 Coins)
+-	Mithilfe des Satz des Pythagoras wird durch die Koordinaten der jeweiligen Knotenpunkte, die miteinander
+	verbunden werden sollen, die Hypothenuse ausgerechnet werden, welche auch gleichzeitig der Abstand zwischen 
+	den beiden Punkten ist
+	- 	Hypothenuse lässt sich durch die gewählten punkte bestimmen
+	-	Node 1 Koordinaten = 10; 350
+	-	Node 2 Koordinaten = 200; 600
+	- 	Kathete 1 = (10 - 200)²
+	-	Kathete 2 = (200 - 600)²
+	- 	Hypothenuse = sqroot(Kathete 1 + Kathete 2) == sqroot(36100 + 62500) = 314,0063693622 ~ 314 (Auf und ab runden!)
+
+
+
+
+
+
+Alte Spielmechanik:
+
 Gespielt wird gegeneinander. Die Gegenspieler müssen den jeweils gegnerischen Computer (Basis) 
 hacken, um zu gewinnen. Die Kontrahenten haben zu Beginn einer Runde jeweils eine Basis und 
 Startressourcen, die mit einigen Knotenpunkten verbunden sind. Knotenpunkte sind Punkte, 
@@ -44,86 +213,6 @@ werden kann. Mit dem gewonnenen Bitcoins kann man die Module kaufen und installi
   Datenübertragung. Z.B. kann man durch eine bessere Verbindung mehrere Einheiten übertragen.
 Einheiten sollen hauptsächlich gegnerische oder neutrale Knotenpunkte attackieren und diese //
 Einnehmen. Die Angriffe haben unterschiedliche Eigenschaften. In den jeweilige Stichpunkten mehr Informationen.
-
-Einzelheiten
-
-Spieleranzahl
--	Momentan 2 Spieler
--	Erweiterung bis zu X Spieler
-
-Spieler 
--	Startgeld (3000 Coins = 30 Bitcoins)
--	Bandbreite zwischen allen zum start verbundenen Nodes (6.000 kBit/s)
-
-Basis
--   ist ein spezieller Knotenpunkt mit Modulplätzen oder fest eingebauten Modulen und eingebundener Firewall
--	Leistung/Lebenspunkte (100% = 50000)
--   Leistung verringert sich durch Angriffe
--	Bei 0% Leistung, Spielende + verloren //weitere hinzufügen !?
-
-Knotenpunkte
--	Leistung (100% = 5000; 10000)
--	Einnehmbar
--	Modulplätze 4; 7
--	Integrierte Netzwerkkarte 2; 3 (entspricht die Anzahl der Verbindungen)
-
-Clients
--	Sind vor Spielbeginn verfügbar
--	Müssen eingenommen werden
--	Verbrauchte sind nicht erneut generierbar
--	Verwendet durch Bitcoinmining
--	Verbraucht durch Phishing
-
-Bitcoinmine
--	Kosten: 1000 Coins
--	Leistungskosten abhängig von der Auslastung/Einstellung
--	Produziert: 1 Coins
-
-Firewall
--   kann pro Upgrade 5 Punkte auf Spezialisierung gegen Angriffe setzen
--   max. 5 Lvl
--   ein Upgrade kostet: Lvl*5000 (jetztiges Level multipliziert mit 5000 Coins) //???
-
-Controlserver
--   kann pro Upgrade 5 Punkte auf Spezialisierung für Virus setzen
-- 	pro Upgrade 100 weitere Verbindungen zu Clients
--   max. 5 Lvl
--   ein Upgrade kostet: Lvl*4000 (jetztiges Level multipliziert mit 4000 Coins)
--	Virus:
-		- jeder Spieler hat seinen Virus, der 
-		  in der Basis spezialisiert werden kann
-		- 2 Spezialisierungen, Schnelligkeit, Angriffsstärke (Vielleicht später mehrere)
-		- Schnelligkeit sagt aus, wie lange er braucht um durch die Bandbreiten durchzukommen
-		- Angriff entspricht den direkten Schaden, der auf den Knotenpunkt ausgeübt wird
-
-Hochleistungsrechner
--  	erweitert die Lebenspunkte pro Upgrade um 1000
-- 	max. 10 Level
--   ein Upgrade kostet: Lvl*20000 (jetztiges Level multipliziert mit 5000 Coins)
-
-Netzwerkkarte
--   kann pro Upgrade eine weitere Verbindung anschließen
--   max. 2 Level
--   ein Upgrade kostet: Lvl*3500 (jetztiges Level multipliziert mit 3500 Coins)
-
-Phishing 
--  	ist ein Befehl, womit man eine bestimmte Anzahl der vorhandenen Clients "ausgeben" kann,
-	um pro Client 10 Coins sofort bekommt
--   Kosten: 2500 Coins
-
-Bandbreite
-- 	ist die Verbindung zwischen den Knotenpunkten
-- 	zum herstellen einer Verbindung wird der Abstand in Pixel benötigt
--	Mithilfe des Satz des Pythagoras wird durch die Koordinaten der jeweiligen Knotenpunkte, die miteinander
-	verbunden werden sollen, die Hypothenuse ausgerechnet werden, welche auch gleichzeitig der Abstand zwischen 
-	den beiden Punkten ist
--	1 Pixel abstand kostet 2 Coins 
-
-(Muss ich noch überarbeiten - Armin)
-
-TODO-LIST Armin:
-- 	Spielfeld entwerfen
--	jeden Punkt genauer definieren
 
 
   
