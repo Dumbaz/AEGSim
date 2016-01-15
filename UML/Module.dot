@@ -1,0 +1,40 @@
+digraph G {
+	fontname = "Bitstream Vera Sans"
+	fontsize = 8
+
+	node [
+		fontname = "Bitstream Vera Sans"
+		fontsize = 8
+		shape = "record"
+	]
+
+	edge [
+		fontname = "Bitstream Vera Sans"
+		fontsize = 8
+	]
+
+	Module [
+		label = "{Modul|- kosten : int\l- leistungskosten : int\l- ownedclients : int\l- clientrate : int\l- owner : player\l|+ update() : void\l+ setOwner() : void\l}"
+	]
+
+	Bitcoinmine [
+		label = "{Bitcoinmine||}"
+	]
+
+	Firewall [
+		label = "{Firewall||}"
+	]
+
+	ControllServer [
+		label = "{ControllServer||}"
+	]
+
+	Hochleistungsrechner [
+		label = "{Hochleistungsrechner||}"
+	]
+
+	Bitcoinmine -> Module
+	Firewall -> Module
+	ControllServer -> Module
+	Hochleistungsrechner -> Module
+}

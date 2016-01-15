@@ -1,0 +1,27 @@
+digraph G {
+	fontname = "Bitstream Vera Sans"
+	fontsize = 8
+
+	node [
+		fontname = "Bitstream Vera Sans"
+		fontsize = 8
+		shape = "record"
+	]
+
+	edge [
+		fontname = "Bitstream Vera Sans"
+		fontsize = 8
+	]
+
+	Player
+	Basis
+	GameObject
+	Knotenpunkt
+	Module
+
+	Player -> Basis [arrowhead = "none", headlabel = "1", taillabel = "1"]
+	Player -> Knotenpunkt [label = "besitzt", arrowhead = "none", headlabel = "0..*", taillabel = "1"]
+	Basis -> Knotenpunkt
+	Knotenpunkt -> GameObject
+	Module -> GameObject
+}
