@@ -1,3 +1,8 @@
+"""
+	Author: Dorian
+	This is a basic simulator of the AE5TageProject Game
+"""
+
 import buildings, modules
 
 

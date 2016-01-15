@@ -1,0 +1,44 @@
+digraph G {
+	fontname = "Bitstream Vera Sans"
+	fontsize = 8
+
+	node [
+		fontname = "Bitstream Vera Sans"
+		fontsize = 8
+		shape = "record"
+	]
+
+	edge [
+		fontname = "Bitstream Vera Sans"
+		fontsize = 8
+	]
+
+	Knotenpunkt [
+		label = "{Knotenpunkt|+ health : int\l+ leistung : int\l+ modulplaetze : int\l+ netzwerkkarten : int\l|- update() : void\l- changeHealth() : int\l- changeLeistung() : int\l}"
+	]
+
+	KleinerKnotenpunkt [
+		label = "{KleinerKnotenpunkt||}"
+	]
+
+	MittlererKnotenpunkt [
+		label = "{MittlererKnotenpunkt||}"
+	]
+	
+	GrosserKnotenpunkt [
+		label = "{GrosserKnotenpunkt||}"
+	]
+
+	Basis [
+        label = "{Basis|+ grundproduktion : int\l+ owner : Player\l|+setOwner(player) : void\l}"
+    ]
+
+    edge [
+    	arrowhead = "empty"
+    ]
+
+    Basis -> Knotenpunkt
+    KleinerKnotenpunkt -> Knotenpunkt
+    MittlererKnotenpunkt -> Knotenpunkt
+    GrosserKnotenpunkt -> Knotenpunkt
+}
