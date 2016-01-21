@@ -1,3 +1,5 @@
+---
+
 Handout Test Driven Development
 ===============================
 
@@ -10,7 +12,8 @@ Vorgehensweise
 
 Geschichte
 ----------
-- Kent Beck erfindet SUnit, trägt zur Entwicklung von JUnit bei
+- Kent Beck erfindet sUnit, trägt zur Entwicklung von xUnit bei
+- JUnit erfreut sich massiver Verbreitung
 
 
 Vorteile
@@ -31,3 +34,7 @@ System- oder Akzeptanztests
 ---------------------------
 - Testen das vollständige Programm
 
+
+---
+
+Dorian Lenzner & Conrad Grosser
