@@ -2,7 +2,7 @@ import GameSim
 
 class Modul(object):
 	"""
-		Können in Knotenpunkte eingesetzt werden.
+		Können in Knotenpunkte eingesetzt werden. Ein Knotenpunkt hat nur eine begrenzte Anzahl Plätze.
 	"""
 	def __init__(self):
 		super(Modul, self).__init__()
