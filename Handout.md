@@ -3,14 +3,6 @@
 Handout Test Driven Development
 ===============================
 
-Mit Fokus auf Unit-Tests
-
-Vorgehensweise
--------------
-- Tests werden geschrieben, bevor Implementiert wird
-- Ein Test testet einzelne Module
-- Treten Fehler auf werden minimale Änderungen vorgenommen
-
 Geschichte
 ----------
 
@@ -19,6 +11,12 @@ Geschichte
 - Entwicklung ab 1989
 - Kent Beck erfindet sUnit, trägt zur Entwicklung von xUnit bei
 - JUnit erfreut sich massiver Verbreitung
+
+Vorgehensweise
+-------------
+- Tests werden geschrieben, bevor Implementiert wird
+- Ein Test testet einzelne Module
+- Treten Fehler auf werden minimale Änderungen vorgenommen
 
 
 Vorteile
@@ -35,6 +33,9 @@ Nachteile
 - Tests schreiben ist nicht einfach
 - Zäher Anfang
 - Ersetzt "normales" Testen nicht
+
+Beispiel
+--------
 
 
 System- oder Akzeptanztests
